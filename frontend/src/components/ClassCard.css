@@ -1,0 +1,106 @@
+.class-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.class-card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.class-card-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.level-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.level-badge.beginner {
+  background-color: #28a745;
+}
+
+.level-badge.intermediate {
+  background-color: #ffc107;
+}
+
+.level-badge.advanced {
+  background-color: #dc3545;
+}
+
+.class-card-body {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.class-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail-item {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.detail-item strong {
+  color: #667eea;
+}
+
+.detail-item.price {
+  font-size: 1.2rem;
+  color: #28a745;
+  margin-top: 0.5rem;
+}
+
+.class-card-footer {
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.enroll-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.enroll-button:hover {
+  transform: scale(1.05);
+}
+
+.enroll-button:active {
+  transform: scale(0.98);
+}
