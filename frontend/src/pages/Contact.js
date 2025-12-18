@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // In a real application, this would send the form data to a backend API
+    console.log('Contact form submitted:', formData);
+    setSubmitted(true);
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setSubmitted(false);
+    }, 3000);
+  };
+
   return (
     <div className="contact-page">
       <div className="contact-header">
@@ -42,7 +69,12 @@ const Contact = () => {
 
         <div className="contact-form-section">
           <h2>Send Us a Message</h2>
-          <form className="contact-form">
+          {submitted && (
+            <div className="success-message">
+              Thank you for your message! We'll get back to you soon.
+            </div>
+          )}
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">Name *</label>
@@ -50,6 +82,8 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -60,6 +94,8 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -71,6 +107,8 @@ const Contact = () => {
                 type="text"
                 id="subject"
                 name="subject"
+                value={formData.subject}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -81,6 +119,8 @@ const Contact = () => {
                 id="message"
                 name="message"
                 rows="6"
+                value={formData.message}
+                onChange={handleChange}
                 required
               ></textarea>
             </div>
