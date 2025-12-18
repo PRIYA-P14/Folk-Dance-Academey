@@ -1,0 +1,22 @@
+:root {
+  --primary: #f59e0b; /* Amber */
+  --dark: #1f2937;
+  --light: #f3f4f6;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
